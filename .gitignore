@@ -14,3 +14,4 @@ terraform.tfstate.backup
 dist/
 build/
 *.egg-info/
+logs/*.log
