@@ -43,3 +43,25 @@ Columns:
   currency          STRING
   load_timestamp    TIMESTAMP   audit
   pipeline_run_id   STRING      audit
+
+## Intentional Bad Records (for DQ testing)
+
+### market_prices
+- Row 51: business_date = "NOT-A-DATE"        → fails date format check
+- Row 52: price = -99.99                       → fails price > 0 check
+- Row 53: instrument_id = null                 → fails null check
+- Row 54: price = null                         → fails null check
+
+### credit_exposure
+- Row 201: exposure_amount = null              → fails null check
+- Row 202: exposure_amount = -500000           → fails >= 0 check
+- Row 203: exposure_amount = 999999999         → fails anomaly threshold
+- Row 204: duplicate JPM + DESK-EQUITY on 2024-01-15 → fails uniqueness check
+
+### limit_thresholds
+- Row 41: limit_amount = null                  → fails null check
+- Row 42: limit_amount = 0                     → fails > 0 check
+- Row 43: instrument_id = null                 → fails null check
+
+### reg_reference
+- Row 11: instrument_id = null                 → fails null check

@@ -1,0 +1,38 @@
+[
+  {
+    "file_name": "credit_exposure_clean.csv",
+    "row_count": 200,
+    "column_count": 7,
+    "checksum_md5": "48110bec6035e380f0db145d51fe6578",
+    "generated_at": "2026-04-15T12:51:32.603837Z",
+    "batch_id": "BATCH-20240115-001",
+    "source_system": "MOCK-GENERATOR"
+  },
+  {
+    "file_name": "limit_thresholds_clean.csv",
+    "row_count": 40,
+    "column_count": 6,
+    "checksum_md5": "c4a5558611b542f5752c13be68f4486e",
+    "generated_at": "2026-04-15T12:51:32.608250Z",
+    "batch_id": "BATCH-20240115-001",
+    "source_system": "MOCK-GENERATOR"
+  },
+  {
+    "file_name": "market_prices_clean.csv",
+    "row_count": 50,
+    "column_count": 6,
+    "checksum_md5": "b8380bc7425d7bfa46c9944ea509c606",
+    "generated_at": "2026-04-15T12:51:32.612283Z",
+    "batch_id": "BATCH-20240115-001",
+    "source_system": "MOCK-GENERATOR"
+  },
+  {
+    "file_name": "reg_reference_clean.csv",
+    "row_count": 10,
+    "column_count": 5,
+    "checksum_md5": "2187713cf7f8226d30d4d9a59e279216",
+    "generated_at": "2026-04-15T12:51:32.615277Z",
+    "batch_id": "BATCH-20240115-001",
+    "source_system": "MOCK-GENERATOR"
+  }
+]
