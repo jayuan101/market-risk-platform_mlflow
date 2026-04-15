@@ -1,3 +1,5 @@
+import os
+
 from utils.config import config
 from utils.logger import logger
 from utils.glue_helper import ensure_database, create_or_update_table
@@ -48,7 +50,7 @@ def main() -> None:
         {"Name": "region", "Type": "string"},
         {"Name": "exposure_amount", "Type": "double"},
         {"Name": "currency", "Type": "string"},
-        {"Name": "ingest_timestamp", "Type": "string"},
+        {"Name": "engest_timestamp", "Type": "string"},
     ]
     exposure_partitions = [
         {"Name": "business_date", "Type": "string"},
@@ -72,12 +74,13 @@ def main() -> None:
         {"Name": "effective_date", "Type": "string"},
         {"Name": "currency", "Type": "string"},
     ]
+    limit_partitions: list[dict] = []
     create_or_update_table(
         db_name=raw_db,
         table_name="mrisk_raw_limit_thresholds",
         location=get_s3_location("limit_thresholds"),
         columns=limit_columns,
-        partition_keys=[],
+        partition_keys=limit_partitions,
         table_description="Raw limit thresholds reference table",
     )
 
@@ -89,12 +92,13 @@ def main() -> None:
         {"Name": "reporting_flag", "Type": "boolean"},
         {"Name": "last_updated", "Type": "string"},
     ]
+    reg_partitions: list[dict] = []
     create_or_update_table(
         db_name=raw_db,
         table_name="mrisk_raw_reg_reference",
         location=get_s3_location("reg_reference"),
         columns=reg_columns,
-        partition_keys=[],
+        partition_keys=reg_partitions,
         table_description="Raw regulatory reference attributes",
     )
 

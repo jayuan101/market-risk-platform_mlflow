@@ -1,0 +1,5 @@
+aws_region  = "us-east-1"
+project     = "market-risk-platform"
+environment = "dev"
+bucket_name = "market-risk-platform"
+alert_email = "jay.pendley1218@gmail.com"

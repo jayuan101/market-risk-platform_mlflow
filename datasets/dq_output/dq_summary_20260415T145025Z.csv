@@ -1,0 +1,5 @@
+domain,total,passed,failed,rejected_path,passed_path
+market_prices,50,50,0,,C:\Users\Ja-Yuan Pendley\Organized\projects\market-risk-platform_mlflow\datasets\dq_output\market_prices_passed_20260415T145025Z.csv
+credit_exposure,200,200,0,,C:\Users\Ja-Yuan Pendley\Organized\projects\market-risk-platform_mlflow\datasets\dq_output\credit_exposure_passed_20260415T145025Z.csv
+limit_thresholds,40,40,0,,C:\Users\Ja-Yuan Pendley\Organized\projects\market-risk-platform_mlflow\datasets\dq_output\limit_thresholds_passed_20260415T145025Z.csv
+reg_reference,10,10,0,,C:\Users\Ja-Yuan Pendley\Organized\projects\market-risk-platform_mlflow\datasets\dq_output\reg_reference_passed_20260415T145025Z.csv

@@ -22,6 +22,7 @@ class Config:
 
     # Glue Catalog Databases
     GLUE_RAW_DB: str    = os.getenv("GLUE_RAW_DB",    "mrisk_raw_db")
+    CURATED_PREFIX: str  = os.getenv("CURATED_PREFIX", "silver/curated")
     GLUE_CURATED_DB: str = os.getenv("GLUE_CURATED_DB", "mrisk_curated_db")
     GLUE_BRONZE_DB: str = os.getenv("GLUE_BRONZE_DB", "mrisk_bronze_db")
     GLUE_SILVER_DB: str = os.getenv("GLUE_SILVER_DB", "mrisk_silver_db")
