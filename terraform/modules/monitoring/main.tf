@@ -1,31 +1,19 @@
-resource "aws_sns_topic" "pipeline_alerts" {
-  name = "mrisk-pipeline-alerts"
+resource "aws_lambda_function" "pipeline" {
+  function_name    = "mrisk-pipeline-lambda"
+  role             = var.lambda_role_arn
+  handler          = "pipeline_handler.lambda_handler"
+  runtime          = "python3.11"
+  timeout          = 900
+  filename         = "${path.module}/mrisk_pipeline.zip"
+  source_code_hash = filebase64sha256("${path.module}/mrisk_pipeline.zip")
 
-  tags = {
-    Project     = var.project
-    Environment = var.environment
+  environment {
+    variables = {
+      AWS_DEFAULT_REGION = "us-east-1"
+      PROJECT_NAME       = var.project
+      ENVIRONMENT        = var.environment
+    }
   }
-}
-
-resource "aws_sns_topic_subscription" "email_alert" {
-  topic_arn = aws_sns_topic.pipeline_alerts.arn
-  protocol  = "email"
-  endpoint  = var.alert_email
-}
-
-resource "aws_cloudwatch_log_group" "pipeline_logs" {
-  name              = "/mrisk/pipeline"
-  retention_in_days = 7
-
-  tags = {
-    Project     = var.project
-    Environment = var.environment
-  }
-}
-
-resource "aws_cloudwatch_log_group" "lambda_logs" {
-  name              = "/mrisk/lambda"
-  retention_in_days = 7
 
   tags = {
     Project     = var.project
