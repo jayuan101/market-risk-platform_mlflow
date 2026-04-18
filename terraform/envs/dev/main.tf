@@ -40,7 +40,7 @@ module "monitoring" {
 
 module "lambda" {
   source          = "../../modules/lambda"
-  lambda_role_arn = module.iam.lambda_role_arn
+  lambda_role_arn = module.iam.lambda_exec_role_arn
   environment     = var.environment
   project         = var.project
 }

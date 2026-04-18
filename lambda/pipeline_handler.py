@@ -6,6 +6,7 @@ from quality import run_quality_local
 from transform import build_curated, build_gold
 
 
+
 def lambda_handler(event, context):
     """
     Event expects: {"stage": "ingest_raw" | "dq" | "curated" | "gold"}

@@ -13,7 +13,9 @@ switch ($task) {
     "curated"           { python src/transform/build_curated.py }
     "register-curated"  { python src/transform/register_curated_tables.py }
     "gold"              { python src/transform/build_gold.py }
+    "pipeline"          { python src/orchestration/pipeline_driver.py }
     "register-gold"     { python src/transform/register_gold_tables.py }
+    "register-audit"    { python src/orchestration/register_audit_tables.py }
     "help" {
         Write-Host "Available tasks:"
         Write-Host "  setup             - install dependencies"
@@ -24,6 +26,8 @@ switch ($task) {
         Write-Host "  register-curated  - register curated Glue tables + repair partitions (mrisk_curated_db)"
         Write-Host "  gold              - build gold Parquet from curated, upload to S3 gold prefix"
         Write-Host "  register-gold     - register gold Glue tables + repair partitions (mrisk_gold_db)"
+        Write-Host "  pipeline          - run full pipeline + upload audit JSON to S3 + CloudWatch metric"
+        Write-Host "  register-audit    - register Glue audit DB + table (mrisk_audit_db)"
         Write-Host "  test              - run pytest suite"
     }
     default { Write-Host "Unknown task: $task. Run with -task help" }

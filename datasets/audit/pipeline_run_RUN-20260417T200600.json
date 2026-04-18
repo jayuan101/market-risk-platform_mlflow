@@ -1,0 +1,40 @@
+{
+  "run_id": "RUN-20260417T200600",
+  "overall_status": "FAILED",
+  "started_at": "2026-04-17T20:06:00.430409Z",
+  "finished_at": "2026-04-17T20:06:21.888825Z",
+  "steps": [
+    {
+      "step": "ingest_raw",
+      "status": "SUCCESS",
+      "start_time": "2026-04-17T20:06:00.430409Z",
+      "end_time": "2026-04-17T20:06:04.951021Z",
+      "duration_seconds": 4.520612,
+      "error": null
+    },
+    {
+      "step": "dq",
+      "status": "SUCCESS",
+      "start_time": "2026-04-17T20:06:04.952888Z",
+      "end_time": "2026-04-17T20:06:06.797747Z",
+      "duration_seconds": 1.844859,
+      "error": null
+    },
+    {
+      "step": "curated",
+      "status": "SUCCESS",
+      "start_time": "2026-04-17T20:06:06.800039Z",
+      "end_time": "2026-04-17T20:06:20.095000Z",
+      "duration_seconds": 13.294961,
+      "error": null
+    },
+    {
+      "step": "gold",
+      "status": "FAILED",
+      "start_time": "2026-04-17T20:06:20.097524Z",
+      "end_time": "2026-04-17T20:06:21.888825Z",
+      "duration_seconds": 1.791301,
+      "error": "C:\\Users\\Ja-Yuan Pendley\\Organized\\projects\\market-risk-platform_mlflow\\src\\transform\\build_gold.py:28: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  _RUN_ID = f\"GOLD-{datetime.utcnow().strftime('%Y%m%dT%H%M%S')}\"\nC:\\Users\\Ja-Yuan Pendley\\Organized\\projects\\market-risk-platform_mlflow\\src\\transform\\build_gold.py:29: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  _RUN_TS = datetime.utcnow().isoformat() + \"Z\"\nTraceback (most recent call last):\n  File \"C:\\Users\\Ja-Yuan Pendley\\Organized\\projects\\market-risk-platform_mlflow\\src\\transform\\build_gold.py\", line 136, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\Ja-Yuan Pendley\\Organized\\projects\\market-risk-platform_mlflow\\src\\transform\\build_gold.py\", line 116, in main\n    df = _load_curated_exposure_limits()\n  File \"C:\\Users\\Ja-Yuan Pendley\\Organized\\projects\\market-risk-platform_mlflow\\src\\transform\\build_gold.py\", line 40, in _load_curated_exposure_limits\n    df = pq.read_table(domain_dir).to_pandas()\n  File \"pyarrow\\\\array.pxi\", line 887, in pyarrow.lib._PandasConvertible.to_pandas\n  File \"pyarrow\\\\table.pxi\", line 5132, in pyarrow.lib.Table._to_pandas\n  File \"C:\\Users\\Ja-Yuan Pendley\\Organized\\projects\\market-risk-platform_mlflow\\.venv\\Lib\\site-packages\\pyarrow\\pandas_compat.py\", line 793, in table_to_dataframe\n    result = pa.lib.table_to_blocks(options, table, categories,\n                                    list(ext_columns_dtypes.keys()))\n  File \"pyarrow\\\\table.pxi\", line 4061, in pyarrow.lib.table_to_blocks\n  File \"pyarrow\\\\error.pxi\", line 92, in pyarrow.lib.check_status\npyarrow.lib.ArrowInvalid: Cannot yet unify dictionaries with nulls\n"
+    }
+  ]
+}
