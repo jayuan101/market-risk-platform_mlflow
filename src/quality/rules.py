@@ -2,10 +2,6 @@ from typing import Any, Dict, List, Tuple
 import pandas as pd
 
 
-def _fail(msg: str) -> Tuple[bool, str]:
-    return False, msg
-
-
 def validate_market_prices(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame]:
     """
     Returns (df_valid, df_invalid) with a 'dq_reason' column on invalid.

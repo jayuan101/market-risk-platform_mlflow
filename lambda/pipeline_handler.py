@@ -1,10 +1,20 @@
 import json
+import sys
 import os
+
+# Ensure src/ packages are importable when running locally (Lambda ZIP flattens structure)
+_here = os.path.dirname(os.path.abspath(__file__))
+for _candidate in [
+    os.path.join(_here, "..", "src"),  # local dev: lambda/../src
+    _here,                              # Lambda: modules zipped at root
+]:
+    if os.path.isdir(_candidate) and _candidate not in sys.path:
+        sys.path.insert(0, _candidate)
+
 from utils.logger import logger
 from ingestion import upload_raw
 from quality import run_quality_local
 from transform import build_curated, build_gold
-
 
 
 def lambda_handler(event, context):
@@ -31,7 +41,6 @@ def lambda_handler(event, context):
     except Exception as e:
         logger.exception(f"Stage {stage} failed: {e}")
         result = {"status": "FAILED", "stage": stage, "error": str(e)}
-        # Let Step Functions see it as a failure
         raise
 
     return {

@@ -1,5 +1,8 @@
-boto3,
-pandas,
-pyarrow,
-make init, 
-make test
+boto3
+pandas
+pyarrow
+mlflow
+python-dotenv
+loguru
+pydantic
+pytest

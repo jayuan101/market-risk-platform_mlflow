@@ -29,6 +29,9 @@ class Config:
     GLUE_GOLD_DB: str   = os.getenv("GLUE_GOLD_DB",   "mrisk_gold_db")
     GLUE_AUDIT_DB: str  = os.getenv("GLUE_AUDIT_DB",  "mrisk_audit_db")
 
+    # MLflow
+    MLFLOW_TRACKING_URI: str = os.getenv("MLFLOW_TRACKING_URI", "mlruns")
+
     # Derived S3 paths — computed once, reused everywhere
     @property
     def BRONZE_PATH(self) -> str:

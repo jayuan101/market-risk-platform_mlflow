@@ -21,3 +21,11 @@ output "sns_topic_arn" {
 output "pipeline_log_group" {
   value = module.monitoring.pipeline_log_group
 }
+
+output "lambda_function_arn" {
+  value = module.lambda.function_arn
+}
+
+output "lambda_function_name" {
+  value = module.lambda.function_name
+}

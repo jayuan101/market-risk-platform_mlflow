@@ -50,7 +50,7 @@ def main() -> None:
         {"Name": "region", "Type": "string"},
         {"Name": "exposure_amount", "Type": "double"},
         {"Name": "currency", "Type": "string"},
-        {"Name": "engest_timestamp", "Type": "string"},
+        {"Name": "ingest_timestamp", "Type": "string"},
     ]
     exposure_partitions = [
         {"Name": "business_date", "Type": "string"},
